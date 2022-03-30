@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+let encrypt = (item)=>{
+    const list = 'abcdefghijklmnopqrstuvwxyz'
+    const List = list.toUpperCase()
+    const realList = list + List
+    // console.log(realList);//abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLNMOPQRSTUVWXYZ
+    let newItem = item.split('')
+    console.log(newItem);
+    let res = []
+    let realRes =''
+    newItem.map((v,i)=>{
+        if(i>51){
+            i = i-51
+            res[i] = realList[(realList.indexOf(v)+4)]
+        }else{
+            res[i] = realList[(realList.indexOf(v)+4)]
+        }
+    })
+    return res.join('')
+}
+let demo = 'China'
+console.log(encrypt(demo));
+
+
+// ---------//
+let convert = (v)=>{
+    v.
+}
+</script>

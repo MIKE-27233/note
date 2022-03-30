@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <strong></strong>
+</head>
+<body>
+    <button>dubonce</button>
+    <button>throtter</button>
+</body>
+</html>
+<script>
+    var btn = document.querySelectorAll("button")
+    let timer1 = ''
+    let timer2 = ''
+    btn[0].onclick = function (param) { 
+        clearTimeout(timer1)
+        timer1  = setTimeout(() => {
+            console.log("dubonce")
+        }, 2000);
+     }
+     btn[1].onclick = function (param) { 
+       if(!timer2){
+        timer2  = setTimeout(() => {
+            console.log("throtter")
+            timer2=0
+       }
+        , 2000);
+     }
+     }
+
+     window.name = 'foo'
+     function A(){
+         this.name = 123
+     }
+     A.prototype.getA = function(){
+         return this.name + 1 
+     }
+     const a = new A()
+     const funcA = a.getA
+    //  输出啥为什么？
+     console.log(funcA())//?
+     console.log(a.getA())//?
+      </script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+</body>
+</html>
+<script>
+    var input = document.querySelector('input');
+    input.addEventListener('input', function(e){
+        console.log(e.target.value);
+    });
+    // 判断input是否有中文
+    function isChinese(str){
+        var reg = /[\u4E00-\u9FA5]/g;
+        return reg.test(str);
+    }
+    // 判断input是否有英文
+    function isEnglish(str){
+        var reg = /[a-zA-Z]/g;
+        return reg.test(str);
+    }
+    // 判断input是否有电话号码
+    function isPhone(str){
+        var reg = /^1[3|4|5|7|8][0-9]{9}$/;
+        return reg.test(str);
+    }
+    
+    // 得到一个随机颜色
+    function getRandomColor(){
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+    // 得到一个随机数
+    function getRandomNum(min, max){
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    
+
+</script>

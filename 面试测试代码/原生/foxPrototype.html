@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    window.name = 'Foo';
+function A() {
+  this.name = 123;
+}
+A.prototype.getA = function () {
+  return this.name + 1;
+};
+const a = new A();
+const funcA = a.getA;
+funcA();
+a.getA();
+console.log(funcA());
+console.log(a.getA());
+</script>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        td{
+            text-align: center;
+        }
+        table{
+            margin: 0 auto;
+            width: 600px;
+            background-color: aquamarine;
+        }
+        h2{
+            text-align: center;
+            margin-top: 30px;
+        }
+        div{
+            border:solid 1px black;
+            width: 600px;
+            position: absolute;
+            left: 340px;
+        }
+    </style>
+</head>
+<body>
+    <h2>真划算</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>商品</td>
+                <td>单价</td>
+                <td>颜色</td>
+                <td>库存</td>
+                <td>好评率</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody class="tbody1"></tbody>
+    </table>
+<!-- ================================================================ -->
+    <div>
+        <h2>购物车</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>商品</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                    <td>金额</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody class="tbody2"></tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    var oTb1=document.querySelector('.tbody1')
+
+    var arr = [
+        { "product": "Apple", "price": 3800, "color": "黑色", "num": "123", "good": "98%" },
+        { "product": "华为", "price": 4800, "color": "黑色", "num": "321", "good": "94%" },
+        { "product": "小米", "price": 6800, "color": "黑色", "num": "111", "good": "91%" }
+    ]
+
+    for(let i=0;i<arr.length;i++){
+        let oTr=document.createElement('tr')
+        oTb1.appendChild(oTr)
+        for(var k in arr[i]){
+            let oTd=document.createElement('td')
+            oTr.appendChild(oTd)
+            oTd.innerHTML=arr[i][k]
+        }
+        let oTd=document.createElement('td')
+        oTr.appendChild(oTd)
+        oTd.innerHTML='<button>加入购物车</button>'
+    }
+
+
+    // ==============================================
+
+    var arr2=[{"name":"Apple","price":"9999","num":"1","money":"9999"},
+            {"name":"小米","price":"3999","num":"1","money":"3999"},
+            {"name":"华为","price":"6999","num":"1","money":"6999"}]
+
+    var oTb2=document.querySelector('.tbody2')
+    for(let i=0;i<arr2.length;i++){
+        let oTr=document.createElement('tr')
+        oTb2.appendChild(oTr)
+        for(let k in arr2[i]){
+            let oTd=document.createElement('td')
+            oTd.innerHTML=arr2[i][k]
+            if(k=='num'){
+                oTd.innerHTML=`<input type="button" value="-"> <input type="text" size="2" value="1"><input type="button" value="+">`
+            }
+            oTr.appendChild(oTd)
+
+        }
+    }
+
+
+
+
+
+
+
+// ===========================================拖拽
+
+    var oDiv=document.querySelector('div')
+    oDiv.onmousedown=function(e){
+        var ev=e||event;
+        var x=ev.clientX-oDiv.offsetLeft
+        var y=ev.clientY-oDiv.offsetTop
+        document.onmousemove=function(e){
+            var ev=e||event;
+            var xx=ev.clientX-x;
+            var yy=ev.clientY-y;
+
+            if(xx<=0){
+                xx=0
+            }
+            if(xx>=document.documentElement.clientWidth-oDiv.offsetWidth){
+                xx=document.documentElement.clientWidth-oDiv.offsetWidth
+            }
+            if(yy<=0){
+                yy=0
+            }
+            if(yy>=document.documentElement.clientoffsetHeight-oDiv.offsetHeight){
+                yy=document.documentElement.clientoffsetHeight-oDiv.offsetHeight
+            }
+
+            oDiv.style.left=xx+'px'
+            oDiv.style.top=yy+'px'
+        }
+    }
+    document.onmouseup=function(){
+        document.onmousemove=null
+    }
+</script>

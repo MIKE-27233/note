@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      op
+    }
+  </style>
+</head>
+
+<body>
+
+  <input type="search">
+</body>
+
+</html>
+<script>
+  // // 对 obj 进行浅拷贝
+  // function shallowCopy(obj) {
+  //   if (typeof obj === 'object' && obj !== null) {
+  //     let copy = Array.isArray(obj) ? [] : {};
+  //     // 遍历原对象 obj，将第一层属性赋值给新对象
+  //     for (var p in obj) {
+  //       copy[p] = obj[p]
+  //     }
+  //     // 返回的新对象就是浅拷贝后的对象
+  //     return copy
+  //   } else {
+  //     // 如果是基本类型，直接返回
+  //     return obj
+  //   }
+  // }
+
+  // // 原数据是对象
+  // var obj = {
+  //   color: 'red',
+  //   person: {
+  //     name: '谷底飞龙',
+  //     age: 28,
+  //   },
+  // }
+
+  // // 浅拷贝
+  // var copy = shallowCopy(obj);
+
+  // // 改变原数据第一层属性 color （基本数据类型）
+  // copy.color = 'yellow';
+  // // 改变原数据第一层属性 person（引用数据类型）
+  // copy.person.name = '天下无敌';
+  // // 原数据中 color 仍为 “red“，但是 name 会被修改为 “天下无敌”
+  // console.log(obj);
+
+
+
+  // //深拷贝
+  // // 方法一：
+  // // 递归浅拷贝
+  // function recursiveShallowCopy(obj) {
+  //   var copy = Array.isArray(obj) ? [] : {};
+  //   for (let p in obj) {
+  //     if (typeof obj[p] === 'object') {
+  //       // 对象类型，继续递归浅拷贝
+  //       copy[p] = recursiveShallowCopy(obj[p]);
+  //     } else {
+  //       copy[p] = obj[p];
+  //     }
+  //   }
+  //   return copy;
+  // }
+
+  // // 深拷贝
+  // function deepCopy(obj) {
+  //   if (typeof obj === 'object' && obj !== null) {
+  //     // 如果是引用类型，进行递归浅拷贝
+  //     return recursiveShallowCopy(obj);
+  //   } else {
+  //     // 如果是基本类型，直接返回
+  //     return obj;
+  //   }
+  // }
+
+  // // 原数据是对象
+  // var obj1 = {
+  //   color: 'red',
+  //   person: {
+  //     name: '谷底飞龙',
+  //   },
+  // }
+
+  // // 改用 deepCopy() 实现深拷贝
+  // var copy = deepCopy(obj1);
+
+  // // 改变原数据第一层属性 color （基本数据类型）
+  // copy.color = 'yellow';
+  // // 改变原数据第一层属性 person（引用数据类型）
+  // copy.person.name = '天下无敌';
+  // // 原数据中 color 仍为 “red“，name 仍为 “谷底飞龙”
+  // console.log(obj);
+
+  // //方法二：JSON的方法
+  // // 先通过JSON.stringify()把原对象序列化成一个 JSON 字符串，再通过JSON.parse()生成一个新对象。
+  // // 原数据是对象
+  // var obj3 = {
+  //   color: 'red',
+  //   person: {
+  //     name: '谷底飞龙',
+  //   },
+  // }
+
+  // // 改用 JSON.parse(JSON.stringify()) 实现深拷贝
+  // var copy = JSON.parse(JSON.stringify(obj3));
+
+  // // 改变原数据第一层属性 color （基本数据类型）
+  // copy.color = 'yellow';
+  // // 改变原数据第一层属性 person（引用数据类型）
+  // copy.person.name = '天下无敌';
+  // // 原数据中 color 仍为 “red“，name 仍为 “谷底飞龙”
+  // console.log(obj);
+
+  // // 注意
+  // // 注意
+  // // 注意，JSON方式实现深拷贝有如下几个缺陷，验证如下：
+  // // 1.如果原对象中有undefined、Symbol、函数时，会导致该键值被丢失
+  // // 2.如果原对象中有正则，会被转换为空对象{}
+  // // 3.如果原对象中有Date，会被转换成字符串
+  // // 4.会抛弃原对象的constructor，都会被转换成Object，构造函数
+  // // 5.如果对象中存在循环引用的情况，无法正确处理
+
+
+  // // 前三个缺陷的验证如下：
+  // // 原数据是对象
+  // var obj4 = {
+  //   color: 'red',
+  //   person: {
+  //     name: null,
+  //     age: function () { }, // 被丢失
+  //     country: undefined, // 被丢失
+  //     love: Symbol(), // 被丢失
+  //     time: new Date(),// 转换成 字符串
+  //     height: /[1-9][0-9]?/, // 转换成空对象 {}
+  //   },
+  // }
+
+  // 使用 JSON.parse(JSON.stringify() 实现深拷贝
+  var copy = JSON.parse(JSON.stringify(obj4));
+  console.log(copy)
+
+  // 异步的方式可以处理undefined和循环引用对象
+ 
+
+
+</script>

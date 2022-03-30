@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #changeColor{
+            background: #c8d68b;
+        }
+    </style>
+</head>
+<body>
+    <input type="text"  class="color" size="30"  placeholder="请帮我变色" id="changeColor">
+    <button class="color">点击输入框变色</button>
+</body>
+</html>
+<script>
+//   let node = {
+//   type: 'Identifier',
+//   name: 'foo'
+// };
+ 
+// let { type: myType, name: myName = 'wozien' } = node;
+ 
+// console.log(node);
+// console.log(myType, myName); // Identifier foo
+
+const deepClone = (obj) => {
+  // implement
+  return JSON.parse(JSON.stringify(obj))
+}
+
+const original = { a: 1 }
+const copied = deepClone(original)
+console.log(copied);
+</script>

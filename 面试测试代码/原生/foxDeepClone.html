@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  const deepClone = (obj) => {
+    // implement
+    let res = {}
+    for (let key in obj) {
+      if (typeof obj[key] === 'object' ) {
+        res[key]= deepClone(obj[key])
+      } else {
+        res[key] = obj[key]
+      }
+    }
+    return res
+    // return JSON.parse(JSON.stringify(obj))
+  }
+
+  function recursiveShallowCopy(obj) {
+    var copy = Array.isArray(obj) ? [] : {};
+    for (let p in obj) {
+      if (typeof obj[p] === 'object') {
+        // 对象类型，继续递归浅拷贝
+        copy[p] = recursiveShallowCopy(obj[p]);
+      } else {
+        copy[p] = obj[p];
+      }
+    }
+    return copy;
+  }
+
+  const original = { a: 1 ,b:{b:2}}
+  console.log(deepClone(original));
+  console.log(recursiveShallowCopy(original));
+</script>
